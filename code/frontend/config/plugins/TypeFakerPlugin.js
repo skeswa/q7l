@@ -1,6 +1,5 @@
 const glob = require('glob-promise')
-const { close, mkdir, open, readFile, writeFile } = require('mz/fs')
-const { EOL } = require('os')
+const { close, mkdir, open, writeFile } = require('mz/fs')
 const { join } = require('path')
 
 const defaultOpts = {
