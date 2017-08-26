@@ -2,9 +2,10 @@ import React, { StatelessComponent } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import { NotFoundPage } from 'common/error/components/NotFoundPage'
-import AppPaths from 'common/nav/constants/AppPaths'
+import AppPath from 'common/nav/constants/AppPath'
+import { ExternalPagePath } from 'common/nav/constants/PagePath'
+import { buildRoutePath } from 'common/nav/util'
 
-import PagePaths from '../../constants/PagePaths'
 import AboutPage from '../AboutPage'
 import ContactUsPage from '../ContactUsPage'
 import LoginPage from '../LoginPage'
@@ -14,23 +15,23 @@ import SplashPage from '../SplashPage'
 const ExternalApp: StatelessComponent = () =>
   <Switch>
     <Route
-      path={`${AppPaths.External}${PagePaths.About}`}
+      path={buildRoutePath(AppPath.External, ExternalPagePath.About)}
       component={AboutPage}
     />
     <Route
-      path={`${AppPaths.External}${PagePaths.ContactUs}`}
+      path={buildRoutePath(AppPath.External, ExternalPagePath.ContactUs)}
       component={ContactUsPage}
     />
     <Route
-      path={`${AppPaths.External}${PagePaths.Login}`}
+      path={buildRoutePath(AppPath.External, ExternalPagePath.Login)}
       component={LoginPage}
     />
     <Route
-      path={`${AppPaths.External}${PagePaths.Register}`}
+      path={buildRoutePath(AppPath.External, ExternalPagePath.Register)}
       component={RegisterPage}
     />
     <Route
-      path={`${AppPaths.External}${PagePaths.Splash}`}
+      path={buildRoutePath(AppPath.External, ExternalPagePath.Splash)}
       component={SplashPage}
     />
     <Route component={NotFoundPage} />

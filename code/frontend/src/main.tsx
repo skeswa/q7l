@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import AdminAppBundle from 'admin/components/AdminAppBundle'
 import { NotFoundPage } from 'common/error/components/NotFoundPage'
-import AppPaths from 'common/nav/constants/AppPaths'
-import { registerServiceWorker } from 'common/util/serviceWorker'
+import AppPath from 'common/nav/constants/AppPath'
+import { buildRoutePath } from 'common/nav/util'
+import { registerServiceWorker } from 'common/network/serviceWorker'
 import ExternalAppBundle from 'external/components/ExternalAppBundle'
 import StudentAppBundle from 'student/components/StudentAppBundle'
 
@@ -14,9 +15,18 @@ render(
   <Router>
     <main>
       <Switch>
-        <Route path={AppPaths.Admin} component={AdminAppBundle} />
-        <Route path={AppPaths.Student} component={StudentAppBundle} />
-        <Route path={AppPaths.External} component={ExternalAppBundle} />
+        <Route
+          path={buildRoutePath(AppPath.Admin)}
+          component={AdminAppBundle}
+        />
+        <Route
+          path={buildRoutePath(AppPath.Student)}
+          component={StudentAppBundle}
+        />
+        <Route
+          path={buildRoutePath(AppPath.External)}
+          component={ExternalAppBundle}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </main>
